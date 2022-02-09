@@ -1,9 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-[#fff] text-gray-300;
+    @apply bg-[#eef7ff];
+    zoom: "110%";
+    font-family: "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace";
   }
+}
+
+/*
+ * We'll use CSS grids for the base template
+ * More info on https://cssgrid.io/ by @wesbos
+ */
+#main {
+  display: grid;
+  grid-template-columns: 6rem auto;
+  /* Or grid-template-columns: config('width.24') auto; */
+}
+
+@media (min-width: 1200px) {
+  /* Or @media (min-width: config('screens.xl')) { */
+
+  #main {
+    grid-template-columns: 12rem auto;
+  }
+  /* Or #main { grid-template-columns: config('width.48') auto; } */
+}
+
+a {
+  text-decoration: none;
+  /* Or @apply .no-underline; */
+}
+
+/* Just a new padding size */
+.pt-16 {
+  padding-top: 4rem;
+}
+
+/*
+ * Just some customized new utilities needed for the submenus
+ * Add this before
+ */
+.top-full {
+  top: 100%;
+}
+.left-full {
+  left: 100%;
+}
+
+.MuiSvgIcon-root {
+  height: 50px !important;
+  width: 40px !important;
+}
+/*
+ * This hacks is just needed in Codepen because the previous rules are prioritary to xl:pin-none.
+ * In your own config this should not be needed.
+ */
+
+@media (min-width: 1200px) {
+  .xl\:pin-none {
+    left: auto;
+  }
+}
+
+@media (min-width: 640px) {
+}
+
+@media (min-width: 1024px) {
+  /* .MuiSvgIcon-root {
+    height: 30px !important;
+    width: 20px !important;
+  } */
+}
+
+@media (min-width: 1280px) {
+  .desktop\:text-center {
+    text-align: center;
+  }
+}
+
+/* 
+ * Active "group-hover" for the "display" module in your
+ * tailwind.js config file like this:
+ * 
+ * display: ['responsive', 'group-hover']
+ *
+ * More info on https://tailwindcss.com/docs/state-variants/#group-hover
+ */
+.group:hover .group-hover\:block {
+  display: block;
 }

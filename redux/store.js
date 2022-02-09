@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import registerReducer from "./slices/registerSlice";
-import roomReducer from "./slices/roomSlice";
+import authReducer from "./slices/authSlice";
+import ledgerReducer from "./slices/ledgerSlice";
+import globalReducer from "./slices/globalSlice";
 
 export const store = configureStore({
   reducer: {
-    register: registerReducer,
-    rooms: roomReducer,
+    auth: authReducer,
+    ledger: ledgerReducer,
+    global: globalReducer,
   },
 });
